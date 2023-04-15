@@ -18,5 +18,3 @@
     $connection = new mysqli($hn, $db, $un, $pw);
     ?>
 </body>
-
-</html>
