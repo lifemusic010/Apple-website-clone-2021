@@ -9,14 +9,14 @@
 </head>
 <bdoy>
     <?php
-    require_once "login-php";
+    require_once "login.php";
 
     $sql = "SELECT u.userid, o.shipping_address, o.serial#
     FROM order o
     LEFT JOIN user_info u on u.userid = o.userid";
 
     $res = $connection->query($sql);
-    if ($res->num_row > 0) {
+    if ($res->num_rows > 0) {
         echo "<table><tr><th>Order</th>
         <th>UserID</th>
         <th>Shipping Address</th>

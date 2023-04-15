@@ -15,6 +15,6 @@
     $un = 'root';
     $pw = 'mysql';
 
-    $connection = new mysqli($hn, $db, $un, $pw);
+    $connection = new mysqli($hn, $un, $pw, $db);
     ?>
 </body>
