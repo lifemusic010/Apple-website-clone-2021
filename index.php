@@ -133,7 +133,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; www.github.com/CyberSaiyam</p>
+      <p>&copy; Bimal Gajmer, Sangjin Lee</p>
     </div>
   </footer>
   <script src="./main.js"></script>
