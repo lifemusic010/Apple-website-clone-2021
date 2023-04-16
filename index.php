@@ -59,7 +59,7 @@
             <a href="./example.php" class="nav-link nav-link-search"> </a>
           </li>
           <li class="nav-item nav-item-hidden">
-            <a href="#" class="nav-link nav-link-bag"> </a>
+            <a href="./example.php" class="nav-link nav-link-bag"> </a>
           </li>
         </ul>
         <!-- nav list nav list larger  -->
