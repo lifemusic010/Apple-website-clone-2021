@@ -34,10 +34,10 @@
             <a href="index.html" class="nav-link nav-link-apple"> </a>
           </li>
           <li class="nav-item">
-            <a href="#iMac" class="nav-link">Mac </a>
+            <a href="./Mac.php" class="nav-link">Mac </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Mac </a>
+            <a href="./iPad.php" class="nav-link">iPad </a>
           </li>
           <li class="nav-item">
             <a href="./iphone.php" class="nav-link">iPhone </a>
