@@ -37,7 +37,7 @@
             <a href="#iMac" class="nav-link">Mac </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">iPad </a>
+            <a href="#" class="nav-link">Mac </a>
           </li>
           <li class="nav-item">
             <a href="#iphone12pro" class="nav-link">iPhone </a>
