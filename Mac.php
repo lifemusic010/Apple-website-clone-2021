@@ -16,7 +16,7 @@
            <label for="model">Model:</label>
            <select id="model" name="model">
              <option value="model1" data-price="1,299.99">Mac</option>
-             <option value="model2" data-price="1,999.99">iMac </option>
+             <option value="model2" data-price="1,599.99">iMac </option>
          
            </select>
            
