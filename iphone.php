@@ -21,7 +21,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>iMac</td>
+                <td>Mac</td>
                 <td>$1,199.99</td>
                 <td><input type="number" min="1" max="10" value="1"></td>
                 <td> <input type=""></td>
