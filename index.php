@@ -40,7 +40,7 @@
             <a href="#" class="nav-link">iPad </a>
           </li>
           <li class="nav-item">
-            <a href="#iphone12pro" class="nav-link">iPhone </a>
+            <a href="./iphone.php" class="nav-link">iPhone </a>
           </li>
           <li class="nav-item">
             <a href="#watch" class="nav-link">Watch </a>
