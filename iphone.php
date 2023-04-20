@@ -22,12 +22,12 @@
         <tbody>
           
             <tr>
-                <td>Mac</td>
-                <td>$1,299.99</td>
+                <td>iPhone</td>
+                <td>$999.99</td>
                 <td><input type="number" min="1" max="10" value="1"></td>
                 <td> <input type=""></td>
                 <td> <input type=""></td>
-                <td>1,299.99</td>
+                <td>999.99</td>
             </tr>
 
         </tbody>
