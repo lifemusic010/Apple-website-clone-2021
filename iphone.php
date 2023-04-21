@@ -20,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-          
+
             <tr>
                 <td>iPhone</td>
                 <td>$999.99</td>
