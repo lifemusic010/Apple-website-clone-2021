@@ -1,44 +1,48 @@
-<!DOCTYPE html>
-<html>
+<div class="product">
+    <h2>iPad</h2>
 
-<head>
-    <title>Shopping Cart </title>
-</head>
+    <form>
+        <label for="color">Colar:</label>
+        <select id="color" name="color">
+            <option value="White">White</option>
+            <option value="Rose">Rose</option>
+            <option value="Blue">Blue</option>
+        </select>
 
-<body>
-    <h1>Shopping Cart</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th> GB</th>
-                <th> Model</th>
-                <th> Color</th>
+        <label for="model">Model:</label>
+        <select id="model" name="model">
+            <option value="model1" data-price="759.99">iPad </option>
+            <option value="model2" data-price="999.99">iPad Pro</option>
+            <option value="model3" data-price="859.99">iPad Air</option>
 
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-          
-            <tr>
-                <td>iPad</td>
-                <td>$449.99</td>
-                <td><input type="number" min="1" max="10" value="1"></td>
-                <td> <input type=""></td>
-                <td> <input type=""></td>
-                <td>449.99</td>
-            </tr>
+        </select>
 
-        </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="2">Total</th>
-                <th></th>
-            </tr>
-        </tfoot>
-    </table>
-    <button>Checkout</button>
-</body>
+        <label for="size">GB Size:</label>
+        <select id="size" name="size">
+            <option value="256gb" data-price="759.99">256GB</option>
+            <option value="512gb" data-price="859.99">512GB</option>
+            <option value="1TB" data-price="999.99">1TB</option>
 
-</html>
+        </select>
+
+        <div id="price">Price: $1,299.99</div>
+
+        <button type="submit">Add to Cart</button>
+
+    </form>
+</div>
+
+<script>
+    // Get the select element for GB size
+    var select = document.getElementById("size");
+
+    // Listen for changes to the selected GB size
+    select.addEventListener("change", function () {
+        // Get the selected option element
+        var option = select.options[select.selectedIndex];
+        // Get the price from the data-price attribute
+        var price = option.getAttribute("data-price");
+        // Update the displayed price
+        document.getElementById("price").textContent = "Price: $" + price;
+    });
+</script>

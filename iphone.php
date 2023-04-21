@@ -1,44 +1,50 @@
-<!DOCTYPE html>
-<html>
+<div class="product">
+    <h2>iPhone</h2>
 
-<head>
-    <title>Shopping Cart </title>
-</head>
 
-<body>
-    <h1>Shopping Cart</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th> GB</th>
-                <th> Model</th>
-                <th> Color</th>
+    <form>
+        <label for="color">Color:</label>
+        <select id="color" name="color">
+            <option value="White">White</option>
+            <option value="Rose">Rose</option>
+            <option value="Blue">Blue</option>
+            <option value="Black">Black</option>
+            <option value="Red">Red</option>
+        </select>
 
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
+        <label for="model">Model:</label>
+        <select id="model" name="model">
+            <option value="model1" data-price="1,199.99">iPhone-12-pro </option>
+            <option value="model2" data-price="1,299.99">iPhone-12-Pro-Max</option>
+            <option value="model3" data-price="899.99">iPhone-12</option>
+            <option value="model4" data-price="999.99">iPhone-12-Plue</option>
+        </select>
 
-            <tr>
-                <td>iPhone</td>
-                <td>$999.99</td>
-                <td><input type="number" min="1" max="10" value="1"></td>
-                <td> <input type=""></td>
-                <td> <input type=""></td>
-                <td>999.99</td>
-            </tr>
+        <label for="size">GB Size:</label>
+        <select id="size" name="size">
+            <option value="128gb" data-price="1,199.99">128GB</option>
+            <option value="256gb" data-price="1,299.99">256GB</option>
 
-        </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="2">Total</th>
-                <th></th>
-            </tr>
-        </tfoot>
-    </table>
-    <button>Checkout</button>
-</body>
+        </select>
 
-</html>
+        <div id="price">Price: $1,299.99</div>
+
+        <button type="submit">Add to Cart</button>
+
+    </form>
+</div>
+
+<script>
+    // Get the select element for GB size
+    var select = document.getElementById("size");
+
+    // Listen for changes to the selected GB size
+    select.addEventListener("change", function () {
+        // Get the selected option element
+        var option = select.options[select.selectedIndex];
+        // Get the price from the data-price attribute
+        var price = option.getAttribute("data-price");
+        // Update the displayed price
+        document.getElementById("price").textContent = "Price: $" + price;
+    });
+</script>
