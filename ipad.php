@@ -1,48 +1,106 @@
-<div class="product">
-    <h2>iPad</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-    <form>
-        <label for="color">Colar:</label>
-        <select id="color" name="color">
-            <option value="White">White</option>
-            <option value="Rose">Rose</option>
-            <option value="Blue">Blue</option>
-        </select>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPad Store</title>
+</head>
 
-        <label for="model">Model:</label>
-        <select id="model" name="model">
-            <option value="model1" data-price="759.99">iPad </option>
-            <option value="model2" data-price="999.99">iPad Pro</option>
-            <option value="model3" data-price="859.99">iPad Air</option>
+<body>
+    <?php
+    require_once "login.php";
+    require_once "./services/size.php";
+    require_once "./services/ipad.php";
+    require_once "./services/uuid.php";
+    require_once "./services/user.php";
+    $uuid = generateUuidV4();
+    function findUserById($userArray, $targetId)
+    {
+        foreach ($userArray as $user) {
+            if ($user['userid'] == $targetId) {
+                return $user;
+            }
+        }
+        // No user found with the specified userId
+        return null;
+    }
 
-        </select>
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $model = $_POST["model"];
+        $size = $_POST["size"];
+        $price = $_POST["price"];
+        $user = $_POST["user"];
+        $findUser = findUserById($userInfoList, $user);
+        if ($findUser === null) {
+            echo "User not found";
+            return;
+        }
 
-        <label for="size">GB Size:</label>
-        <select id="size" name="size">
-            <option value="256gb" data-price="759.99">256GB</option>
-            <option value="512gb" data-price="859.99">512GB</option>
-            <option value="1TB" data-price="999.99">1TB</option>
+        $userId = $findUser['userid'];
+        $cardNum = $findUser['card_num'];
 
-        </select>
+        $insertShoppingSqlQuery = "INSERT INTO shopping_cart (id, userid, serial_num, card_num, capa)
+        VALUES ('$uuid', '$userId', '$model', '$cardNum', '$size')";
 
-        <div id="price">Price: $1,299.99</div>
+        if ($connection->query($insertShoppingSqlQuery) === TRUE) {
+            echo "New record created successfully in shipping";
+        } else {
+            echo "Error: " . $insertShoppingSqlQuery . "<br>" . $connection->error;
+        }
+    }
 
-        <button type="submit">Add to Cart</button>
+    ?>
+    <div class="product">
+        <h2>iPad</h2>
 
-    </form>
-</div>
+        <form method="post" action="ipad.php">
+            <label for="user">User:</label>
+            <select id="user" name="user">
+                <?php
+                foreach ($userInfoList as $userInfo): ?>
+                    <option value="<?= $userInfo['userid'] ?>"><?= $userInfo['userid'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <label for="model">Model:</label>
+            <select id="model" name="model">
+                <?php foreach ($ipadProductList as $ipadProduct): ?>
+                    <option value="<?= $ipadProduct['serial_num'] ?>" data-price="<?= $ipadProduct['price'] ?>"><?= $ipadProduct['model'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <label for="size">GB Size:</label>
+            <select id="size" name="size">
+                <?php foreach ($sizeInfoList as $sizeInfo): ?>
+                    <option value="<?= $sizeInfo['id'] ?>" data-price="<?= $sizeInfo['price'] ?>"><?= $sizeInfo['size'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
 
-<script>
-    // Get the select element for GB size
-    var select = document.getElementById("size");
+            <div id="price">Price: $759.99</div>
+            <input type="hidden" id="hiddenPrice" name="price" value="759.99">
 
-    // Listen for changes to the selected GB size
-    select.addEventListener("change", function () {
-        // Get the selected option element
-        var option = select.options[select.selectedIndex];
-        // Get the price from the data-price attribute
-        var price = option.getAttribute("data-price");
-        // Update the displayed price
-        document.getElementById("price").textContent = "Price: $" + price;
-    });
-</script>
+            <button type="submit">Purchase</button>
+        </form>
+    </div>
+
+    <script>
+        const updatePrice = () => {
+            const model = document.getElementById("model");
+            const size = document.getElementById("size");
+            const price = model.options[model.selectedIndex].getAttribute("data-price");
+            const sizePrice = size.options[size.selectedIndex].getAttribute("data-price");
+
+            document.getElementById("price").textContent = "Price: $" + (parseFloat(price) + parseFloat(sizePrice));
+            document.getElementById("hiddenPrice").value = parseFloat(price) + parseFloat(sizePrice);
+        };
+
+        document.getElementById("model").addEventListener("change", updatePrice);
+        document.getElementById("size").addEventListener("change", updatePrice);
+    </script>
+
+
+</body>
+
+</html>

@@ -29,7 +29,9 @@
 
         <div id="price">Price: $1,299.99</div>
 
-        <button type="submit">Add to Cart</button>
+        <button type="submit">Purchase
+
+        </button>
 
     </form>
 </div>

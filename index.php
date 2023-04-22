@@ -37,7 +37,7 @@
             <a href="./Mac.php" class="nav-link">Mac </a>
           </li>
           <li class="nav-item">
-            <a href="./iPad.php" class="nav-link">iPad </a>
+            <a href="./ipad.php" class="nav-link">iPad </a>
           </li>
           <li class="nav-item">
             <a href="./iphone.php" class="nav-link">iPhone </a>
@@ -133,7 +133,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; Bimal Gajmer, Sangjin Lee</p>
+      <p>&copy; www.github.com/CyberSaiyam</p>
     </div>
   </footer>
   <script src="./main.js"></script>
